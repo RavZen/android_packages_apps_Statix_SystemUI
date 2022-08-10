@@ -116,6 +116,7 @@ import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
 import com.android.wm.shell.legacysplitscreen.LegacySplitScreen;
 import com.android.wm.shell.startingsurface.StartingSurface;
+import com.android.systemui.statusbar.policy.TaskHelper;
 
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
@@ -235,7 +236,8 @@ public class StatixStatusBar extends StatusBar {
                            TunerService tunerService,
                            DumpManager dumpManager,
                            ActivityLaunchAnimator activityLaunchAnimator,
-                           SmartSpaceController smartSpaceController) {
+                           SmartSpaceController smartSpaceController,
+                           TaskHelper taskHelper) {
         super(context, notificationsController, fragmentService, lightBarController, autoHideController,
                 statusBarWindowController, keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
                 notificationWakeUpCoordinator, keyguardBypassController, keyguardStateController, headsUpManagerPhone,
@@ -260,6 +262,7 @@ public class StatixStatusBar extends StatusBar {
                 keyguardUnlockAnimationController, mainHandler, delayableExecutor, messageRouter, wallpaperManager,
                 unlockedScreenOffAnimationController, startingSurfaceOptional, tunerService, dumpManager, activityLaunchAnimator);
         mSmartSpaceController = smartSpaceController;
+        mTaskHelper = taskHelper;
     }
 
     @Override

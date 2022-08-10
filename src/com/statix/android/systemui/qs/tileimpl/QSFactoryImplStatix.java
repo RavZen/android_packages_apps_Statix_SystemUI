@@ -39,6 +39,7 @@ import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.qs.tiles.LocaleTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 
 // Custom tiles
@@ -60,6 +61,7 @@ public class QSFactoryImplStatix extends QSFactoryImpl {
     private final Provider<GloveModeTile> mGloveModeTileProvider;
     private final Provider<PowerShareTile> mPowerShareTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
+     private final Provider<LocaleTile> mLocaleTileProvider;
 
     @Inject
     public QSFactoryImplStatix(
@@ -96,6 +98,7 @@ public class QSFactoryImplStatix extends QSFactoryImpl {
             Provider<PowerShareTile> powerShareTileProvider,
             Provider<GloveModeTile> gloveModeTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
+             Provider<LocaleTile> localeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider) {
         super(qsHostLazy, customTileBuilderProvider, wifiTileProvider, internetTileProvider, bluetoothTileProvider, cellularTileProvider, dndTileProvider, colorInversionTileProvider,
             airplaneModeTileProvider, workModeTileProvider, rotationLockTileProvider, flashlightTileProvider, locationTileProvider, castTileProvider, hotspotTileProvider, userTileProvider,
@@ -107,6 +110,7 @@ public class QSFactoryImplStatix extends QSFactoryImpl {
         mGloveModeTileProvider = gloveModeTileProvider;
         mPowerShareTileProvider = powerShareTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
+        mLocaleTileProvider = localeTileProvider;
     }
 
     private QSTileImpl createTileStatix(String tileSpec) {
@@ -121,6 +125,8 @@ public class QSFactoryImplStatix extends QSFactoryImpl {
                 return mPowerShareTileProvider.get();
             case "smartpixels":
                 return mSmartPixelsTileProvider.get();
+            case "locale":
+                return mLocaleTileProvider.get();
             default:
                 return null;
         }

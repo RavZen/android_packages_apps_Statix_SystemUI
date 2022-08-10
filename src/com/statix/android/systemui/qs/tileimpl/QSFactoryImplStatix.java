@@ -39,6 +39,8 @@ import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.qs.tiles.LocaleTile;
+import com.android.systemui.qs.tiles.SleepModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 
 // Custom tiles
@@ -92,6 +94,8 @@ public class QSFactoryImplStatix extends QSFactoryImpl {
             Provider<DeviceControlsTile> deviceControlsTileProvider,
             Provider<AlarmTile> alarmTileProvider,
             Provider<QuickAccessWalletTile> quickAccessWalletTileProvider,
+            Provider<SleepModeTile> mSleepModeTileProvider,
+            Provider<LocaleTile> mLocaleTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<PowerShareTile> powerShareTileProvider,
             Provider<GloveModeTile> gloveModeTileProvider,
@@ -100,7 +104,7 @@ public class QSFactoryImplStatix extends QSFactoryImpl {
         super(qsHostLazy, customTileBuilderProvider, wifiTileProvider, internetTileProvider, bluetoothTileProvider, cellularTileProvider, dndTileProvider, colorInversionTileProvider,
             airplaneModeTileProvider, workModeTileProvider, rotationLockTileProvider, flashlightTileProvider, locationTileProvider, castTileProvider, hotspotTileProvider, userTileProvider,
             batterySaverTileProvider, dataSaverTileProvider, nightDisplayTileProvider, nfcTileProvider, memoryTileProvider, uiModeNightTileProvider, screenRecordTileProvider, reduceBrightColorsTileProvider,
-            cameraToggleTileProvider, microphoneToggleTileProvider, deviceControlsTileProvider, alarmTileProvider, quickAccessWalletTileProvider);
+            cameraToggleTileProvider, microphoneToggleTileProvider, deviceControlsTileProvider, alarmTileProvider, quickAccessWalletTileProvider, mSleepModeTileProvider, mLocaleTileProvider);
         // custom tile
         mCaffeineTileProvider = caffeineTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
